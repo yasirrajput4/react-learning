@@ -1,16 +1,42 @@
-# React + Vite
+# Currency Converter (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple currency converter built with React + Tailwind CSS. Enter an amount,
+pick a "From" and "To" currency, and convert using live exchange rates.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Convert between any two currencies using live rates
+- Swap "From" and "To" currencies with one click
+- Left-side illustrative photo + glassmorphism converter card on the right
+- Gradient background (no broken/missing image)
 
-## React Compiler
+## How It Works
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. `useCurrencyInfo(from)` fetches the latest exchange rates for the
+   selected "From" currency from the currency API and returns an object like
+   `{ inr: 83.1, eur: 0.91, ... }`.
+2. `options` is derived from the keys of that object, and passed to both
+   `InputBox` dropdowns as the list of selectable currencies.
+3. On submit, `convert()` computes `amount * currencyInfo[to]` and updates
+   `convertedAmount`.
+4. `swap()` swaps `from`/`to` and `amount`/`convertedAmount` so you can
+   quickly reverse the conversion.
 
-## Expanding the ESLint configuration
+## Bugs Fixed (for reference)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Both dropdowns showed the same currency (USD twice).**
+   The "To" `InputBox` was passed `selectCurrency={from}` instead of
+   `selectCurrency={to}` in `App.jsx`.
+2. **`InputBox`'s `<select>` wasn't actually controlled.**
+   The `value`, `onChange`, and `disabled` props were mistakenly attached to
+   the `<p>` label instead of the `<select>` element, so picking a currency
+   from the dropdown did nothing.
+3. **Wrong type conversion on currency change.**
+   `onCurrencyChange` was doing `Number(e.target.value)`, but a currency code
+   (e.g. `"usd"`) is a string, not a number.
+4. **"From" currency dropdown didn't update state.**
+   `onCurrencyChange` on the first `InputBox` called `setAmount(amount)`
+   instead of `setFrom(currency)`.
+5. **`useCurrencyInfo` used `.then()` chains with no error handling** —
+   rewritten with `async/await` inside a `try/catch`, plus a `res.ok` check,
+   so a failed request logs an error instead of silently breaking.
