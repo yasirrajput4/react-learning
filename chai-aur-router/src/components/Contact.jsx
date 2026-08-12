@@ -1,6 +1,6 @@
 function Contact() {
   return (
-    <div className="relative flex items-top justify-center min-h-175 bg-white sm:items-center sm:pt-0">
+    <div className="relative flex items-top justify-center min-h-175 bg-white sm:items-center sm:pt-0 py-12">
       <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
         <div className="mt-8 overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-2">
@@ -76,7 +76,6 @@ function Contact() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="1.5"
-                    strokeWidth="1.5"
                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                   />
                 </svg>
@@ -92,11 +91,11 @@ function Contact() {
                   Full Name
                 </label>
                 <input
-                  type="name"
+                  type="text"
                   name="name"
                   id="name"
                   placeholder="Full Name"
-                  className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
+                  className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none transition-colors duration-200"
                 />
               </div>
 
@@ -109,7 +108,7 @@ function Contact() {
                   name="email"
                   id="email"
                   placeholder="Email"
-                  className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
+                  className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none transition-colors duration-200"
                 />
               </div>
 
@@ -122,7 +121,7 @@ function Contact() {
                   name="tel"
                   id="tel"
                   placeholder="Telephone Number"
-                  className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
+                  className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none transition-colors duration-200"
                 />
               </div>
 

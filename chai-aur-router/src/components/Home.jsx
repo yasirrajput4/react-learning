@@ -8,7 +8,9 @@ function Home() {
           <div className="max-w-xl sm:mt-1 mt-80 space-y-8 text-center sm:text-right sm:ml-auto">
             <h2 className="text-4xl font-bold sm:text-5xl">
               Download Now
-              <span className="hidden sm:block text-4xl">Lorem Ipsum</span>
+              <span className="hidden sm:block text-4xl">
+                Your app, anywhere
+              </span>
             </h2>
 
             <Link
@@ -33,8 +35,8 @@ function Home() {
         <div className="absolute inset-0 w-full sm:my-20 sm:pt-1 pt-12 h-full ">
           <img
             className="w-96"
-            src="https://images.unsplash.com/photo-1557683304-673a23048d34?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGJhY2tncm91bmQlMjBpbWFnZXxlbnwwfHwwfHx8MA%3D%3D"
-            alt="image1"
+            src="https://raw.githubusercontent.com/cuuupid/undraw-illustrations/master/svg/app_installation_mbdv.svg"
+            alt="Illustration of a person installing a mobile app"
           />
         </div>
       </aside>
@@ -42,13 +44,13 @@ function Home() {
       <div className="grid  place-items-center sm:mt-20">
         <img
           className="sm:w-96 w-48"
-          src="https://images.unsplash.com/photo-1528460033278-a6ba57020470?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGJhY2tncm91bmQlMjBpbWFnZXxlbnwwfHwwfHx8MA%3D%3D"
-          alt="image2"
+          src="https://raw.githubusercontent.com/cuuupid/undraw-illustrations/master/svg/mobile_apps_4wgf.svg"
+          alt="Illustration of mobile apps on a phone screen"
         />
       </div>
 
       <h1 className="text-center text-2xl sm:text-5xl py-10 font-medium">
-        Lorem Ipsum Yojo
+        Built for developers, loved by users
       </h1>
     </div>
   );
