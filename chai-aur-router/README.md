@@ -1,16 +1,24 @@
-# React + Vite
+## What I Learned in This Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. **React Router DOM (Page Navigation)**:
+   - How to set up navigation between different pages (`BrowserRouter`, `Routes`, `Route`) in `main.jsx` and `App.jsx`.
+   - How to pass dynamic values in URLs using `useParams` (e.g., `/user/:userid` in `User.jsx`).
+   - How to highlight the active page link using `NavLink` and its `isActive` state.
+   - How to close a mobile menu automatically when a link is clicked, using an `onClick` handler inside `NavLink`.
+   - How `Link` should only be used for internal app routes, and a normal `<a>` tag should be used for real external URLs (like GitHub or social links).
 
-Currently, two official plugins are available:
+2. **State Management with `useState`**:
+   - How to store and update simple UI state, like `loading`, `error`, and `data` in `Github.jsx`.
+   - How to toggle a boolean value (menu open/closed) using `useState` and an updater function like `setIsMenuOpen((prev) => !prev)`.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+3. **Fetching Data with `useEffect` and `fetch`**:
+   - How to call an external API (GitHub Users API) when a component first loads.
+   - How to handle three states of a network request: loading, success, and error.
+   - Why checking `res.ok` is important — a `fetch` call does not automatically throw an error for a bad response (like 404), so you must check it manually.
 
-## React Compiler
+## Bug Fixes
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Fixed `Github.jsx` so it now shows a proper error message if the GitHub API call fails, instead of showing "undefined" or a broken image.
+- Fixed the invalid `type="name"` on the name input in `Contact.jsx` to `type="text"`.
+- Fixed the missing mobile navigation in `Header.jsx` — the menu was only visible on large screens with no way to open it on mobile; added a working hamburger toggle button.
+- Replaced copyrighted stock photos in `About.jsx` and `Home.jsx` with free, open-source unDraw illustrations.
