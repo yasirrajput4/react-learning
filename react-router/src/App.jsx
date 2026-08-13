@@ -11,7 +11,6 @@ import Women from "./pages/Women";
 import Courses from "./pages/Courses";
 import CourseDetail from "./pages/CourseDetail";
 import NavigationControls from "./components/NavigationControls";
-import "./index.css";
 
 function App() {
   return (
