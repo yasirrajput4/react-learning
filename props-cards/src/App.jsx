@@ -1,5 +1,4 @@
 import ProfileCard from "./components/ProfileCard";
-import "./index.css";
 
 const App = () => {
   return (
