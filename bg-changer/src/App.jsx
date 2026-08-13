@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./index.css";
 
 export default function App() {
   const [color, setColor] = useState("#808000");
