@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "icon": "MdPlace",
+    "title": "Find us",
+    "details": "Pune, Maharashtra"
+  },
+  {
+    "id": 2,
+    "icon": "IoCallSharp",
+    "title": "Call us",
+    "details": "9876543211"
+  },
+  {
+    "id": 3,
+    "icon": "TbMailPlus",
+    "title": "Mail us",
+    "details": "contact@kodyfier.com"
+  }
+]
