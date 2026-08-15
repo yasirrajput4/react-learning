@@ -15,10 +15,10 @@ const Footers = () => {
   return (
     <footer className="footer-section">
       <div className="container grid grid-three-cols">
-        {footerContact.map((curData, index) => {
-          const { icon, title, details } = curData;
+        {footerContact.map((curData) => {
+          const { icon, title, details, id } = curData;
           return (
-            <div className="footer-contact" key={index}>
+            <div className="footer-contact" key={id}>
               <div className="icon">{footerIcon[icon]}</div>
               <div className="footer-contact-text">
                 <p>{title}</p>
