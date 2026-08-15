@@ -10,7 +10,7 @@
 
 html {
   font-size: 62.5%;
-  font-family: "urbanist";
+  font-family: "urbanist", sans-serif;
 }
 
 body {
@@ -40,7 +40,7 @@ li {
 }
 
 a {
-  color: #000;
+  color: #fff;
 
   &:hover {
     color: #2e86c1;
@@ -182,7 +182,7 @@ nav ul {
 
 .heading-xl {
   font-family: inherit;
-  font-size: clamp(5.2rem, 6vw, 4.241rem);
+  font-size: clamp(4.241rem, 6vw, 5.2rem);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -1px;
@@ -320,7 +320,7 @@ nav ul {
     color: #3a4ed5;
     font-size: 3.6rem;
 
-    & .icon:nth-child(2) {
+    &:nth-child(2) {
       rotate: 90deg;
     }
   }
