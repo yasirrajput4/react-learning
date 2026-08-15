@@ -1,5 +1,13 @@
-function Home() {
-  return <h1>Home Page</h1>;
-}
+import HeroSection from "../components/UI/HeroSection";
+import About from "./About";
+
+const Home = () => {
+  return (
+    <>
+      <HeroSection />
+      <About />
+    </>
+  );
+};
 
 export default Home;
