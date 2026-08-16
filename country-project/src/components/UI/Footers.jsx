@@ -13,16 +13,25 @@ const Footers = () => {
   };
 
   return (
-    <footer className="mt-24 border-t border-line bg-surface">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 py-12 sm:grid-cols-3 sm:px-6 lg:px-8">
+    <footer className="mt-24 border-t border-line bg-surface/80 backdrop-blur-md">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-12 sm:grid-cols-3 sm:px-6 lg:px-8">
         {footerContact.map((curData) => {
           const { icon, title, details, id } = curData;
           return (
-            <div className="flex items-center gap-4" key={id}>
-              <div className="text-3xl text-brass">{footerIcon[icon]}</div>
-              <div className="flex flex-col gap-1">
-                <p className="font-semibold text-parchment">{title}</p>
-                <p className="text-sm text-muted">{details}</p>
+            <div
+              className="flex items-center gap-4 rounded-xl border border-line/60 bg-surface-2/30 p-4 transition-colors duration-200 hover:border-line"
+              key={id}
+            >
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brass/10 text-2xl text-brass">
+                {footerIcon[icon]}
+              </div>
+              <div className="flex flex-col gap-0.5 overflow-hidden">
+                <p className="font-mono text-xs uppercase tracking-wider text-muted">
+                  {title}
+                </p>
+                <p className="truncate font-sans text-sm font-medium text-parchment">
+                  {details}
+                </p>
               </div>
             </div>
           );
@@ -34,8 +43,8 @@ const Footers = () => {
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <div className="text-center sm:text-left">
               <p className="font-mono text-xs text-muted">
-                Copyright &copy; 2026, All Right Reserved{" "}
-                <span className="text-brass">Yasir Rajput</span>
+                Copyright &copy; 2026, All Rights Reserved{" "}
+                <span className="font-semibold text-brass">Yasir Rajput</span>
               </p>
             </div>
 
@@ -44,16 +53,15 @@ const Footers = () => {
                 <li>
                   <NavLink
                     to="/"
-                    className="font-mono text-xs uppercase tracking-widest text-muted hover:text-brass-light"
+                    className="font-mono text-xs uppercase tracking-widest text-muted transition-colors duration-200 hover:text-brass-light"
                   >
                     Home
                   </NavLink>
                 </li>
-
                 <li>
                   <NavLink
                     to="/about"
-                    className="font-mono text-xs uppercase tracking-widest text-muted hover:text-brass-light"
+                    className="font-mono text-xs uppercase tracking-widest text-muted transition-colors duration-200 hover:text-brass-light"
                   >
                     About
                   </NavLink>
@@ -61,7 +69,7 @@ const Footers = () => {
                 <li>
                   <NavLink
                     to="/country"
-                    className="font-mono text-xs uppercase tracking-widest text-muted hover:text-brass-light"
+                    className="font-mono text-xs uppercase tracking-widest text-muted transition-colors duration-200 hover:text-brass-light"
                   >
                     Country
                   </NavLink>
@@ -69,7 +77,7 @@ const Footers = () => {
                 <li>
                   <NavLink
                     to="/contact"
-                    className="font-mono text-xs uppercase tracking-widest text-muted hover:text-brass-light"
+                    className="font-mono text-xs uppercase tracking-widest text-muted transition-colors duration-200 hover:text-brass-light"
                   >
                     Contact
                   </NavLink>
