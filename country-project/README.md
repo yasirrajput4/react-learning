@@ -1,6 +1,15 @@
 # WorldAtlas
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-success?style=for-the-badge&logo=vercel)](https://worldatlas-yasir.vercel.app/)
+
 A React country-explorer app — search, filter, and sort through 195+ nations, and drill into a detailed profile for each one. Built on the [REST Countries v5 API](https://restcountries.com/docs) and styled with Tailwind CSS.
+
+## Live Demo
+
+Check out the live application hosted on Vercel:
+**[https://worldatlas-yasir.vercel.app/](https://worldatlas-yasir.vercel.app/)**
+
+---
 
 ## What I Learned in This Project
 
@@ -39,6 +48,8 @@ A React country-explorer app — search, filter, and sort through 195+ nations, 
    - How to keep a secret API key out of source code using a `.env` file and `import.meta.env` in Vite.
    - Why API keys should never be hardcoded or committed, and how to rotate one if it's accidentally exposed.
 
+---
+
 ## Features
 
 - **Home page** with a hero section and a curated "Interesting Facts" showcase of countries.
@@ -53,6 +64,8 @@ A React country-explorer app — search, filter, and sort through 195+ nations, 
 - **Loading and error states** — a spinner while data is in flight, and friendly fallback messaging if a request fails.
 - **Fully responsive layout** — mobile-first grid/flex layouts across every page.
 
+---
+
 ## Tech Stack
 
 | Layer       | Tool                                                    |
@@ -64,3 +77,4 @@ A React country-explorer app — search, filter, and sort through 195+ nations, 
 | Icons       | react-icons                                             |
 | Build tool  | Vite                                                    |
 | Data source | [REST Countries v5 API](https://restcountries.com/docs) |
+| Deployment  | Vercel                                                  |
