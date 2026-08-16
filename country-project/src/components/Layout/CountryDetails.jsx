@@ -8,41 +8,48 @@ const CountryDetails = () => {
 
   const [isPending, startTransition] = useTransition();
   const [country, setCountry] = useState();
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     startTransition(async () => {
-      const res = await getCountryIndData(params.id);
-      console.log(res);
-      if (res.status === 200) {
-        setCountry(res.data[0]);
+      try {
+        const res = await getCountryIndData(params.id);
+        setCountry(res.data.data.objects[0]);
+      } catch (err) {
+        setError(err);
       }
-
-      console.log(Object.keys(res.data[0].name.nativeName));
     });
-  }, []);
+  }, [params.id]);
 
   if (isPending) return <Loader />;
+  if (error || !country)
+    return <h1>Something went wrong. Please try again later.</h1>;
 
-  console.log(params);
+  const nativeNames = country.names.native
+    ? Object.values(country.names.native)
+        .map((n) => n.common)
+        .join(", ")
+    : "N/A";
+
   return (
     <section className="card country-details-card container">
       <div className="container-card bg-white-box">
         {country && (
           <div className="country-image grid grid-two-cols">
-            <img
-              src={country.flags.svg}
-              alt={country.flags.alt}
-              className="flag"
-            />
+            {country.flag?.url_svg && (
+              <img
+                src={country.flag.url_svg}
+                alt={country.flag.description || country.names.common}
+                className="flag"
+              />
+            )}
             <div className="country-content">
-              <p className="card-title"> {country.name.official} </p>
+              <p className="card-title"> {country.names.official} </p>
 
               <div className="infoContainer">
                 <p>
                   <span className="card-description"> Native Names:</span>
-                  {Object.keys(country.name.nativeName)
-                    .map((key) => country.name.nativeName[key].common)
-                    .join(", ")}
+                  {nativeNames}
                 </p>
                 <p>
                   <span className="card-description"> Population: </span>
@@ -58,24 +65,26 @@ const CountryDetails = () => {
                 </p>
                 <p>
                   <span className="card-description"> Capital:</span>
-                  {country.capital}
+                  {country.capitals?.length
+                    ? country.capitals.map((c) => c.name).join(", ")
+                    : "N/A"}
                 </p>
 
                 <p>
                   <span className="card-description">Top Level Domain:</span>
-                  {country.tld[0]}
+                  {country.tlds?.[0] || "N/A"}
                 </p>
                 <p>
                   <span className="card-description"> Currencies: </span>
-                  {Object.keys(country.currencies)
-                    .map((curElem) => country.currencies[curElem].name)
-                    .join(", ")}
+                  {country.currencies?.length
+                    ? country.currencies.map((cur) => cur.name).join(", ")
+                    : "N/A"}
                 </p>
                 <p>
                   <span className="card-description">Languages: </span>
-                  {Object.keys(country.languages)
-                    .map((key) => country.languages[key])
-                    .join(", ")}
+                  {country.languages?.length
+                    ? country.languages.map((lang) => lang.name).join(", ")
+                    : "N/A"}
                 </p>
               </div>
             </div>
