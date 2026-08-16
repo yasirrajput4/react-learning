@@ -4,11 +4,11 @@ import Headers from "../UI/Headers.jsx";
 
 const AppLayout = () => {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-ink text-parchment antialiased selection:bg-brass/30 selection:text-parchment">
       <Headers />
-      <div className="flex-1">
+      <main className="relative flex-1">
         <Outlet />
-      </div>
+      </main>
       <Footers />
     </div>
   );
