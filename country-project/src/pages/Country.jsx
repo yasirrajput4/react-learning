@@ -44,7 +44,8 @@ function Country() {
   };
 
   const filterCountries = countries.filter(
-    (country) => searchCountry(country) && filterRegion(country),
+    (country) =>
+      country.flag?.url_svg && searchCountry(country) && filterRegion(country),
   );
 
   return (
