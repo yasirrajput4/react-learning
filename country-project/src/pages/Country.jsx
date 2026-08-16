@@ -4,7 +4,7 @@ import Loader from "../components/UI/Loader";
 import CountryCard from "../components/Layout/CountryCard";
 import SearchFilter from "../components/UI/SearchFilter";
 
-function Coutry() {
+function Country() {
   const [isPending, startTransition] = useTransition();
   const [countries, setCountries] = useState([]);
   const [error, setError] = useState(null);
