@@ -15,3 +15,12 @@ export const getCountryData = () => {
     },
   });
 };
+
+export const getCountryIndData = (name) => {
+  return api.get(`/names.common/${name}`, {
+    params: {
+      response_fields:
+        "names,population,region,subregion,capitals,tlds,currencies,languages,borders,flag",
+    },
+  });
+};
