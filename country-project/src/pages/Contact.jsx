@@ -15,7 +15,7 @@ const Contact = () => {
           <input
             type="text"
             className="rounded-lg border border-line bg-surface px-4 py-3 text-sm text-parchment placeholder:text-muted transition-colors focus:border-brass focus:outline-none focus:ring-1 focus:ring-brass"
-            placeholder="enter your name"
+            placeholder="Enter your name"
             name="username"
             required
             autoComplete="off"
