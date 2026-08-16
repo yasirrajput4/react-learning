@@ -30,27 +30,36 @@ function SearchFilter({
   };
 
   return (
-    <section className="section-searchFilter container">
-      <div>
+    <section className="mx-auto mb-10 flex max-w-7xl flex-col flex-wrap items-stretch gap-3 px-4 sm:flex-row sm:items-center sm:px-6 lg:px-8">
+      <div className="flex-1 min-w-[200px]">
         <input
           type="text"
           placeholder="search"
           value={search}
           onChange={handleInputChange}
+          className="w-full rounded-full border border-line bg-surface px-5 py-2.5 text-sm text-parchment placeholder:text-muted transition-colors focus:border-brass focus:outline-none focus:ring-1 focus:ring-brass"
         />
       </div>
 
-      <div>
-        <button onClick={() => sortCountries("asc")}>Asc</button>
-      </div>
+      <div className="flex gap-2">
+        <button
+          onClick={() => sortCountries("asc")}
+          className="rounded-full border border-line px-4 py-2.5 font-mono text-xs uppercase tracking-wider text-muted transition-colors hover:border-brass hover:text-brass"
+        >
+          Asc
+        </button>
 
-      <div>
-        <button onClick={() => sortCountries("des")}>Desc</button>
+        <button
+          onClick={() => sortCountries("des")}
+          className="rounded-full border border-line px-4 py-2.5 font-mono text-xs uppercase tracking-wider text-muted transition-colors hover:border-brass hover:text-brass"
+        >
+          Desc
+        </button>
       </div>
 
       <div>
         <select
-          className="select-section"
+          className="w-full rounded-full border border-line bg-surface px-5 py-2.5 text-sm text-parchment transition-colors focus:border-brass focus:outline-none focus:ring-1 focus:ring-brass sm:w-auto"
           value={filter}
           onChange={handleSelectChange}
         >
