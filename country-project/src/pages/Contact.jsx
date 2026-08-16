@@ -6,46 +6,66 @@ const Contact = () => {
 
   return (
     <section className="py-16 sm:py-24">
-      <h2 className="mb-12 text-center font-display text-3xl sm:text-4xl">
-        Contact Us
-      </h2>
+      <div className="mx-auto max-w-xl px-4 sm:px-6">
+        <div className="rounded-2xl border border-line bg-surface/60 p-6 shadow-xl backdrop-blur-md sm:p-10">
+          <h2 className="mb-2 text-center font-display text-3xl text-parchment sm:text-4xl">
+            Contact Us
+          </h2>
+          <p className="mb-8 text-center text-sm text-muted">
+            Have questions or feedback about WorldAtlas? Send us a message.
+          </p>
 
-      <div className="mx-auto max-w-lg px-4 sm:px-6">
-        <form action={handleFormSubmit} className="flex flex-col gap-5">
-          <input
-            type="text"
-            className="rounded-lg border border-line bg-surface px-4 py-3 text-sm text-parchment placeholder:text-muted transition-colors focus:border-brass focus:outline-none focus:ring-1 focus:ring-brass"
-            placeholder="Enter your name"
-            name="username"
-            required
-            autoComplete="off"
-          />
+          <form action={handleFormSubmit} className="flex flex-col gap-5">
+            <div className="flex flex-col gap-1.5">
+              <label className="font-mono text-xs uppercase tracking-wider text-muted">
+                Name
+              </label>
+              <input
+                type="text"
+                className="rounded-xl border border-line bg-surface px-4 py-3 text-sm text-parchment placeholder:text-muted/60 transition-all duration-200 focus:border-brass focus:outline-none focus:ring-1 focus:ring-brass"
+                placeholder="Enter your name"
+                name="username"
+                required
+                autoComplete="off"
+              />
+            </div>
 
-          <input
-            type="email"
-            className="rounded-lg border border-line bg-surface px-4 py-3 text-sm text-parchment placeholder:text-muted transition-colors focus:border-brass focus:outline-none focus:ring-1 focus:ring-brass"
-            placeholder="Enter you email"
-            name="email"
-            required
-            autoComplete="off"
-          />
+            <div className="flex flex-col gap-1.5">
+              <label className="font-mono text-xs uppercase tracking-wider text-muted">
+                Email
+              </label>
+              <input
+                type="email"
+                className="rounded-xl border border-line bg-surface px-4 py-3 text-sm text-parchment placeholder:text-muted/60 transition-all duration-200 focus:border-brass focus:outline-none focus:ring-1 focus:ring-brass"
+                placeholder="Enter your email"
+                name="email"
+                required
+                autoComplete="off"
+              />
+            </div>
 
-          <textarea
-            className="resize-none rounded-lg border border-line bg-surface px-4 py-3 text-sm text-parchment placeholder:text-muted transition-colors focus:border-brass focus:outline-none focus:ring-1 focus:ring-brass"
-            rows="8"
-            placeholder="Enter your message"
-            name="message"
-            required
-            autoComplete="off"
-          ></textarea>
+            <div className="flex flex-col gap-1.5">
+              <label className="font-mono text-xs uppercase tracking-wider text-muted">
+                Message
+              </label>
+              <textarea
+                className="resize-none rounded-xl border border-line bg-surface px-4 py-3 text-sm text-parchment placeholder:text-muted/60 transition-all duration-200 focus:border-brass focus:outline-none focus:ring-1 focus:ring-brass"
+                rows="6"
+                placeholder="Enter your message"
+                name="message"
+                required
+                autoComplete="off"
+              ></textarea>
+            </div>
 
-          <button
-            type="submit"
-            className="mt-2 rounded-full bg-brass px-6 py-3 font-semibold text-ink transition-colors duration-200 hover:bg-brass-light"
-          >
-            Send
-          </button>
-        </form>
+            <button
+              type="submit"
+              className="mt-3 rounded-full bg-brass py-3.5 font-mono text-xs font-bold uppercase tracking-widest text-ink shadow-lg shadow-brass/10 transition-all duration-200 hover:bg-brass-light hover:shadow-brass/20 active:scale-[0.99]"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
       </div>
     </section>
   );
