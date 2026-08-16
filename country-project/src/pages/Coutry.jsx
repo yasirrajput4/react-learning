@@ -1,6 +1,7 @@
 import { useEffect, useState, useTransition } from "react";
 import { getCountryData } from "../api/postApi";
 import Loader from "../components/UI/Loader";
+import CountryCard from "../components/Layout/CountryCard";
 
 function Coutry() {
   const [isPending, startTransition] = useTransition();
@@ -21,7 +22,15 @@ function Coutry() {
   if (isPending) return <Loader />;
   if (error) return <h1>Something went wrong. Please try again later.</h1>;
 
-  return <h1>Country Page</h1>;
+  return (
+    <section className="country-section">
+      <ul className="grid grid-four-cols">
+        {countries.map((curCountry, index) => {
+          return <CountryCard country={curCountry} key={index} />;
+        })}
+      </ul>
+    </section>
+  );
 }
 
 export default Coutry;
