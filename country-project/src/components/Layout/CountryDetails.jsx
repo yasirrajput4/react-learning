@@ -24,9 +24,11 @@ const CountryDetails = () => {
   if (isPending) return <Loader />;
   if (error || !country)
     return (
-      <h1 className="mx-auto max-w-7xl px-4 py-24 text-center font-display text-2xl sm:px-6 lg:px-8">
-        Something went wrong. Please try again later.
-      </h1>
+      <div className="flex min-h-[60vh] items-center justify-center px-4 py-24">
+        <h1 className="rounded-2xl border border-line bg-surface/80 p-8 text-center font-display text-xl text-parchment shadow-xl backdrop-blur-md sm:text-2xl">
+          Something went wrong. Please try again later.
+        </h1>
+      </div>
     );
 
   const nativeNames = country.names.native
@@ -36,27 +38,27 @@ const CountryDetails = () => {
     : "N/A";
 
   return (
-    <section className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
-      <div className="rounded-2xl border border-line bg-surface p-6 sm:p-10">
+    <section className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+      <div className="rounded-2xl border border-line bg-surface/60 p-6 shadow-2xl backdrop-blur-md sm:p-10">
         {country && (
           <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2">
             {country.flag?.url_svg && (
-              <img
-                src={country.flag.url_svg}
-                alt={country.flag.description || country.names.common}
-                className="w-full rounded-xl border border-line shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
-              />
+              <div className="overflow-hidden rounded-xl border border-line bg-surface shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                <img
+                  src={country.flag.url_svg}
+                  alt={country.flag.description || country.names.common}
+                  className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+                />
+              </div>
             )}
             <div>
-              <p className="mb-6 font-display text-2xl sm:text-3xl">
-                {" "}
-                {country.names.official}{" "}
+              <p className="mb-6 font-display text-2xl text-parchment sm:text-3xl">
+                {country.names.official}
               </p>
 
               <div className="flex flex-col gap-3">
                 <p className="flex justify-between gap-4 border-b border-line/60 pb-2 font-mono text-xs sm:text-sm">
                   <span className="uppercase tracking-wider text-muted">
-                    {" "}
                     Native Names:
                   </span>
                   <span className="text-right text-parchment">
@@ -65,8 +67,7 @@ const CountryDetails = () => {
                 </p>
                 <p className="flex justify-between gap-4 border-b border-line/60 pb-2 font-mono text-xs sm:text-sm">
                   <span className="uppercase tracking-wider text-muted">
-                    {" "}
-                    Population:{" "}
+                    Population:
                   </span>
                   <span className="text-parchment">
                     {country.population.toLocaleString()}
@@ -74,21 +75,18 @@ const CountryDetails = () => {
                 </p>
                 <p className="flex justify-between gap-4 border-b border-line/60 pb-2 font-mono text-xs sm:text-sm">
                   <span className="uppercase tracking-wider text-muted">
-                    {" "}
                     Region:
                   </span>
                   <span className="text-parchment">{country.region}</span>
                 </p>
                 <p className="flex justify-between gap-4 border-b border-line/60 pb-2 font-mono text-xs sm:text-sm">
                   <span className="uppercase tracking-wider text-muted">
-                    {" "}
                     Sub Region:
                   </span>
                   <span className="text-parchment">{country.subregion}</span>
                 </p>
                 <p className="flex justify-between gap-4 border-b border-line/60 pb-2 font-mono text-xs sm:text-sm">
                   <span className="uppercase tracking-wider text-muted">
-                    {" "}
                     Capital:
                   </span>
                   <span className="text-parchment">
@@ -108,8 +106,7 @@ const CountryDetails = () => {
                 </p>
                 <p className="flex justify-between gap-4 border-b border-line/60 pb-2 font-mono text-xs sm:text-sm">
                   <span className="uppercase tracking-wider text-muted">
-                    {" "}
-                    Currencies:{" "}
+                    Currencies:
                   </span>
                   <span className="text-right text-parchment">
                     {country.currencies?.length
@@ -119,7 +116,7 @@ const CountryDetails = () => {
                 </p>
                 <p className="flex justify-between gap-4 font-mono text-xs sm:text-sm">
                   <span className="uppercase tracking-wider text-muted">
-                    Languages:{" "}
+                    Languages:
                   </span>
                   <span className="text-right text-parchment">
                     {country.languages?.length
@@ -133,7 +130,7 @@ const CountryDetails = () => {
         )}
         <div className="mt-10 flex justify-end">
           <NavLink to="/country">
-            <button className="rounded-full border border-line px-6 py-2.5 font-mono text-xs uppercase tracking-widest text-muted transition-colors duration-200 hover:border-brass hover:text-brass">
+            <button className="rounded-full border border-line bg-surface-2/40 px-6 py-2.5 font-mono text-xs uppercase tracking-widest text-muted transition-all duration-200 hover:border-brass hover:bg-surface-2 hover:text-brass-light active:scale-95">
               Go Back
             </button>
           </NavLink>
@@ -142,4 +139,5 @@ const CountryDetails = () => {
     </section>
   );
 };
+
 export default CountryDetails;
