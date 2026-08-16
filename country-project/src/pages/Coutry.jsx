@@ -26,18 +26,24 @@ function Coutry() {
   if (isPending) return <Loader />;
   if (error) return <h1>Something went wrong. Please try again later.</h1>;
 
-  // console.log(search, filter);
-
   // Here is the main logic
 
-  function searchCountry(country) {
+  const searchCountry = (country) => {
     if (search) {
       return country.names.common.toLowerCase().includes(search.toLowerCase());
     }
     return country;
-  }
+  };
 
-  const filterCountries = countries.filter((country) => searchCountry(country));
+  const filterRegion = (country) => {
+    if (filter === "all") return country;
+    return country.region === filter;
+  };
+
+  // here is the main logic
+  const filterCountries = countries.filter(
+    (country) => searchCountry(country) && filterRegion(country),
+  );
 
   return (
     <section className="country-section">
