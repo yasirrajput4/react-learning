@@ -3,18 +3,18 @@
     "id": 1,
     "icon": "MdPlace",
     "title": "Find us",
-    "details": "Pune, Maharashtra"
+    "details": "Bangalore, Karnataka"
   },
   {
     "id": 2,
     "icon": "IoCallSharp",
     "title": "Call us",
-    "details": "9876543211"
+    "details": "+91 98123 45678"
   },
   {
     "id": 3,
     "icon": "TbMailPlus",
     "title": "Mail us",
-    "details": "contact@kodyfier.com"
+    "details": "hello@worldatlas.dev"
   }
 ]
