@@ -35,7 +35,7 @@ const Footers = () => {
             <div className="text-center sm:text-left">
               <p className="font-mono text-xs text-muted">
                 Copyright &copy; 2026, All Right Reserved{" "}
-                <span className="text-brass">Kodyfier</span>
+                <span className="text-brass">Yasir Rajput</span>
               </p>
             </div>
 
