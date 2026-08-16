@@ -34,14 +34,8 @@ const Footers = () => {
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <div className="text-center sm:text-left">
               <p className="font-mono text-xs text-muted">
-                Copyright &copy; 2024, All Right Reserved{" "}
-                <NavLink
-                  to="https://thapatechnical.shop/"
-                  target="_blank"
-                  className="text-brass hover:text-brass-light"
-                >
-                  ThapaTechnical
-                </NavLink>
+                Copyright &copy; 2026, All Right Reserved{" "}
+                <span className="text-brass">Kodyfier</span>
               </p>
             </div>
 
@@ -58,20 +52,18 @@ const Footers = () => {
 
                 <li>
                   <NavLink
-                    to="https://www.instagram.com/thapatechnical/"
-                    target="_blank"
+                    to="/about"
                     className="font-mono text-xs uppercase tracking-widest text-muted hover:text-brass-light"
                   >
-                    Social
+                    About
                   </NavLink>
                 </li>
                 <li>
                   <NavLink
-                    to="https://thapatechnical.shop/source-code"
-                    target="_blank"
+                    to="/country"
                     className="font-mono text-xs uppercase tracking-widest text-muted hover:text-brass-light"
                   >
-                    Source Code
+                    Country
                   </NavLink>
                 </li>
                 <li>
