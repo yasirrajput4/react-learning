@@ -13,44 +13,54 @@ const Footers = () => {
   };
 
   return (
-    <footer className="footer-section">
-      <div className="container grid grid-three-cols">
+    <footer className="mt-24 border-t border-line bg-surface">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 py-12 sm:grid-cols-3 sm:px-6 lg:px-8">
         {footerContact.map((curData) => {
           const { icon, title, details, id } = curData;
           return (
-            <div className="footer-contact" key={id}>
-              <div className="icon">{footerIcon[icon]}</div>
-              <div className="footer-contact-text">
-                <p>{title}</p>
-                <p>{details}</p>
+            <div className="flex items-center gap-4" key={id}>
+              <div className="text-3xl text-brass">{footerIcon[icon]}</div>
+              <div className="flex flex-col gap-1">
+                <p className="font-semibold text-parchment">{title}</p>
+                <p className="text-sm text-muted">{details}</p>
               </div>
             </div>
           );
         })}
       </div>
 
-      <div className="copyright-area">
-        <div className="container">
-          <div className="grid grid-two-cols">
-            <div className="copyright-text">
-              <p>
-                Copyright &copy; 2024, All Right Reserved
-                <NavLink to="https://thapatechnical.shop/" target="_blank">
+      <div className="border-t border-line bg-ink">
+        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+            <div className="text-center sm:text-left">
+              <p className="font-mono text-xs text-muted">
+                Copyright &copy; 2024, All Right Reserved{" "}
+                <NavLink
+                  to="https://thapatechnical.shop/"
+                  target="_blank"
+                  className="text-brass hover:text-brass-light"
+                >
                   ThapaTechnical
                 </NavLink>
               </p>
             </div>
 
             <div className="footer-menu">
-              <ul>
+              <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
                 <li>
-                  <NavLink to="/">Home</NavLink>
+                  <NavLink
+                    to="/"
+                    className="font-mono text-xs uppercase tracking-widest text-muted hover:text-brass-light"
+                  >
+                    Home
+                  </NavLink>
                 </li>
 
                 <li>
                   <NavLink
                     to="https://www.instagram.com/thapatechnical/"
                     target="_blank"
+                    className="font-mono text-xs uppercase tracking-widest text-muted hover:text-brass-light"
                   >
                     Social
                   </NavLink>
@@ -59,12 +69,18 @@ const Footers = () => {
                   <NavLink
                     to="https://thapatechnical.shop/source-code"
                     target="_blank"
+                    className="font-mono text-xs uppercase tracking-widest text-muted hover:text-brass-light"
                   >
                     Source Code
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/contact">Contact</NavLink>
+                  <NavLink
+                    to="/contact"
+                    className="font-mono text-xs uppercase tracking-widest text-muted hover:text-brass-light"
+                  >
+                    Contact
+                  </NavLink>
                 </li>
               </ul>
             </div>
