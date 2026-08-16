@@ -31,7 +31,7 @@ function SearchFilter({
 
   return (
     <section className="mx-auto mb-10 flex max-w-7xl flex-col flex-wrap items-stretch gap-3 px-4 sm:flex-row sm:items-center sm:px-6 lg:px-8">
-      <div className="flex-1 min-w-[200px]">
+      <div className="flex-1 min-w-50">
         <input
           type="text"
           placeholder="search"

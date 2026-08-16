@@ -1,13 +1,13 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import AppLayout from "./components/Layout/AppLayout";
+import CountryDetails from "./components/Layout/CountryDetails";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Country from "./pages/Country";
 import ErrorPage from "./pages/ErrorPage";
-import CountryDetails from "./components/Layout/CountryDetails";
 
 const router = createBrowserRouter([
   {

@@ -6,7 +6,7 @@ const CountryCard = ({ country }) => {
     <li className="list-none">
       <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-brass/60">
         {flag?.url_svg && (
-          <div className="aspect-[3/2] w-full overflow-hidden bg-surface-2">
+          <div className="aspect-3/2 w-full overflow-hidden bg-surface-2">
             <img
               src={flag.url_svg}
               alt={names.common}

@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  /* Atlas-at-night palette */
   --color-ink: #0e1420;
   --color-surface: #161d2e;
   --color-surface-2: #1f2a42;

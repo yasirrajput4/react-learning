@@ -31,8 +31,6 @@ function Country() {
       </h1>
     );
 
-  // Here is the main logic
-
   const searchCountry = (country) => {
     if (search) {
       return country.names.common.toLowerCase().includes(search.toLowerCase());
@@ -45,7 +43,6 @@ function Country() {
     return country.region === filter;
   };
 
-  // here is the main logic
   const filterCountries = countries.filter(
     (country) => searchCountry(country) && filterRegion(country),
   );
