@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <main className="relative overflow-hidden">
+    <section className="relative overflow-hidden">
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 py-16 sm:px-6 sm:py-24 md:grid-cols-2 lg:px-8">
         {/* Left Content */}
         <div className="order-2 md:order-1">
@@ -46,7 +46,7 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-    </main>
+    </section>
   );
 };
 

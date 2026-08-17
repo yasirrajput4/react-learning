@@ -17,10 +17,14 @@ const Contact = () => {
 
           <form action={handleFormSubmit} className="flex flex-col gap-5">
             <div className="flex flex-col gap-1.5">
-              <label className="font-mono text-xs uppercase tracking-wider text-muted">
+              <label
+                htmlFor="contact-name"
+                className="font-mono text-xs uppercase tracking-wider text-muted"
+              >
                 Name
               </label>
               <input
+                id="contact-name"
                 type="text"
                 className="rounded-xl border border-line bg-surface px-4 py-3 text-sm text-parchment placeholder:text-muted/60 transition-all duration-200 focus:border-brass focus:outline-none focus:ring-1 focus:ring-brass"
                 placeholder="Enter your name"
@@ -31,10 +35,14 @@ const Contact = () => {
             </div>
 
             <div className="flex flex-col gap-1.5">
-              <label className="font-mono text-xs uppercase tracking-wider text-muted">
+              <label
+                htmlFor="contact-email"
+                className="font-mono text-xs uppercase tracking-wider text-muted"
+              >
                 Email
               </label>
               <input
+                id="contact-email"
                 type="email"
                 className="rounded-xl border border-line bg-surface px-4 py-3 text-sm text-parchment placeholder:text-muted/60 transition-all duration-200 focus:border-brass focus:outline-none focus:ring-1 focus:ring-brass"
                 placeholder="Enter your email"
@@ -45,10 +53,14 @@ const Contact = () => {
             </div>
 
             <div className="flex flex-col gap-1.5">
-              <label className="font-mono text-xs uppercase tracking-wider text-muted">
+              <label
+                htmlFor="contact-message"
+                className="font-mono text-xs uppercase tracking-wider text-muted"
+              >
                 Message
               </label>
               <textarea
+                id="contact-message"
                 className="resize-none rounded-xl border border-line bg-surface px-4 py-3 text-sm text-parchment placeholder:text-muted/60 transition-all duration-200 focus:border-brass focus:outline-none focus:ring-1 focus:ring-brass"
                 rows="6"
                 placeholder="Enter your message"
@@ -60,7 +72,7 @@ const Contact = () => {
 
             <button
               type="submit"
-              className="mt-3 rounded-full bg-brass py-3.5 font-mono text-xs font-bold uppercase tracking-widest text-ink shadow-lg shadow-brass/10 transition-all duration-200 hover:bg-brass-light hover:shadow-brass/20 active:scale-[0.99]"
+              className="mt-3 min-h-12 rounded-full bg-brass py-3.5 font-mono text-xs font-bold uppercase tracking-widest text-ink shadow-lg shadow-brass/10 transition-all duration-200 hover:bg-brass-light hover:shadow-brass/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass focus-visible:ring-offset-2 focus-visible:ring-offset-ink active:scale-[0.99]"
             >
               Send Message
             </button>
