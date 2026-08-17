@@ -1,13 +1,13 @@
 # WorldAtlas
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-success?style=for-the-badge&logo=vercel)](https://worldatlas-yasir.vercel.app/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-success?style=for-the-badge&logo=vercel)](https://worldatlas-yasir.vercel.app)
 
 A React country-explorer app — search, filter, and sort through 195+ nations, and drill into a detailed profile for each one. Built on the [REST Countries v5 API](https://restcountries.com/docs) and styled with Tailwind CSS.
 
 ## Live Demo
 
 Check out the live application hosted on Vercel:
-**[https://worldatlas-yasir.vercel.app/](https://worldatlas-yasir.vercel.app/)**
+**[https://worldatlas-yasir.vercel.app](https://worldatlas-yasir.vercel.app)**
 
 ---
 
@@ -68,3 +68,5 @@ Check out the live application hosted on Vercel:
 | Build tool  | Vite                                                    |
 | Data source | [REST Countries v5 API](https://restcountries.com/docs) |
 | Deployment  | Vercel                                                  |
+
+---
