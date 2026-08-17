@@ -61,7 +61,7 @@ const CountryDetails = () => {
                   <span className="shrink-0 uppercase tracking-wider text-muted">
                     Native Names:
                   </span>
-                  <span className="min-w-0 text-right text-parchment break-words">
+                  <span className="min-w-0 text-right text-parchment wrap-break-word">
                     {nativeNames}
                   </span>
                 </p>
@@ -108,7 +108,7 @@ const CountryDetails = () => {
                   <span className="shrink-0 uppercase tracking-wider text-muted">
                     Currencies:
                   </span>
-                  <span className="min-w-0 text-right text-parchment break-words">
+                  <span className="min-w-0 text-right text-parchment wrap-break-word">
                     {country.currencies?.length
                       ? country.currencies.map((cur) => cur.name).join(", ")
                       : "N/A"}
@@ -118,7 +118,7 @@ const CountryDetails = () => {
                   <span className="shrink-0 uppercase tracking-wider text-muted">
                     Languages:
                   </span>
-                  <span className="min-w-0 text-right text-parchment break-words">
+                  <span className="min-w-0 text-right text-parchment wrap-break-word">
                     {country.languages?.length
                       ? country.languages.map((lang) => lang.name).join(", ")
                       : "N/A"}
