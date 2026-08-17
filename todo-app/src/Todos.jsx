@@ -1,8 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+const todosKey = "reactTodo";
 
 function Todos() {
   const [taskText, setTaskText] = useState("");
-  const [todosList, setTodosList] = useState([]);
+
+  const [todosList, setTodosList] = useState(() => {
+    try {
+      const rawTodos = localStorage.getItem(todosKey);
+      if (!rawTodos) return [];
+      const parsed = JSON.parse(rawTodos);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (e) {
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem(todosKey, JSON.stringify(todosList));
+  }, [todosList]);
 
   function handleInputChange(e) {
     setTaskText(e.target.value);
@@ -54,7 +69,7 @@ function Todos() {
         </form>
 
         <ul className="flex flex-col gap-2 max-h-60 overflow-y-auto pr-1">
-          {todosList.length === 0 ? (
+          {!Array.isArray(todosList) || todosList.length === 0 ? (
             <li className="text-center py-6 text-slate-500 text-sm border border-dashed border-slate-700/60 rounded-xl">
               No tasks added yet!
             </li>
