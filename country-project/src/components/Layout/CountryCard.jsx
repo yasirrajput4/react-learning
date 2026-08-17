@@ -1,30 +1,52 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const CountryCard = ({ country }) => {
   const { flag, names, population, region, capitals } = country;
+  const [flipped, setFlipped] = useState(false);
+
+  const toggleFlip = () => setFlipped((prev) => !prev);
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      toggleFlip();
+    }
+  };
 
   return (
     <li className="list-none perspective-[1000px]">
-      <div className="group relative h-80 w-full rounded-2xl transition-transform duration-700 transform-3d hover:transform-[rotateY(180deg)]">
+      <div
+        role="button"
+        tabIndex={0}
+        aria-pressed={flipped}
+        aria-label={`${names.common} card, ${
+          flipped ? "showing details, tap to flip back" : "tap for details"
+        }`}
+        onClick={toggleFlip}
+        onKeyDown={handleKeyDown}
+        className={`group relative h-80 w-full cursor-pointer rounded-2xl outline-none transition-transform duration-700 transform-3d focus-visible:ring-2 focus-visible:ring-brass focus-visible:ring-offset-2 focus-visible:ring-offset-ink ${
+          flipped ? "transform-[rotateY(180deg)]" : ""
+        }`}
+      >
         {/* Front Side */}
         <div className="absolute inset-0 flex flex-col overflow-hidden rounded-2xl border border-line bg-surface backface-hidden">
           {flag?.url_svg && (
-            <div className="h-48 w-full overflow-hidden bg-surface-2">
+            <div className="h-48 w-full shrink-0 overflow-hidden bg-surface-2">
               <img
                 src={flag.url_svg}
                 alt={names.common}
+                loading="lazy"
                 className="h-full w-full object-cover"
               />
             </div>
           )}
-          <div className="flex flex-1 items-center justify-between p-5">
-            <p className="font-display text-lg font-semibold text-parchment">
-              {names.common.length > 15
-                ? names.common.slice(0, 15) + "..."
-                : names.common}
+          <div className="flex flex-1 items-center justify-between gap-2 p-5">
+            <p className="truncate font-display text-lg font-semibold text-parchment">
+              {names.common}
             </p>
-            <span className="font-mono text-xs uppercase text-brass">
-              Hover Me →
+            <span className="shrink-0 font-mono text-xs uppercase text-brass">
+              Tap →
             </span>
           </div>
         </div>
@@ -60,8 +82,12 @@ const CountryCard = ({ country }) => {
             </div>
           </div>
 
-          <NavLink to={`/country/${names.common}`} className="mt-4">
-            <button className="flex w-full items-center justify-center gap-2 rounded-full border border-brass/40 py-2.5 font-mono text-xs uppercase tracking-widest text-brass transition-colors duration-200 hover:bg-brass hover:text-ink">
+          <NavLink
+            to={`/country/${names.common}`}
+            className="mt-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button className="flex w-full items-center justify-center gap-2 rounded-full border border-brass/40 py-2.5 font-mono text-xs uppercase tracking-widest text-brass transition-colors duration-200 hover:bg-brass hover:text-ink active:scale-95">
               Read More
             </button>
           </NavLink>

@@ -58,15 +58,15 @@ const CountryDetails = () => {
 
               <div className="flex flex-col gap-3">
                 <p className="flex justify-between gap-4 border-b border-line/60 pb-2 font-mono text-xs sm:text-sm">
-                  <span className="uppercase tracking-wider text-muted">
+                  <span className="shrink-0 uppercase tracking-wider text-muted">
                     Native Names:
                   </span>
-                  <span className="text-right text-parchment">
+                  <span className="min-w-0 text-right text-parchment break-words">
                     {nativeNames}
                   </span>
                 </p>
                 <p className="flex justify-between gap-4 border-b border-line/60 pb-2 font-mono text-xs sm:text-sm">
-                  <span className="uppercase tracking-wider text-muted">
+                  <span className="shrink-0 uppercase tracking-wider text-muted">
                     Population:
                   </span>
                   <span className="text-parchment">
@@ -74,19 +74,19 @@ const CountryDetails = () => {
                   </span>
                 </p>
                 <p className="flex justify-between gap-4 border-b border-line/60 pb-2 font-mono text-xs sm:text-sm">
-                  <span className="uppercase tracking-wider text-muted">
+                  <span className="shrink-0 uppercase tracking-wider text-muted">
                     Region:
                   </span>
                   <span className="text-parchment">{country.region}</span>
                 </p>
                 <p className="flex justify-between gap-4 border-b border-line/60 pb-2 font-mono text-xs sm:text-sm">
-                  <span className="uppercase tracking-wider text-muted">
+                  <span className="shrink-0 uppercase tracking-wider text-muted">
                     Sub Region:
                   </span>
                   <span className="text-parchment">{country.subregion}</span>
                 </p>
                 <p className="flex justify-between gap-4 border-b border-line/60 pb-2 font-mono text-xs sm:text-sm">
-                  <span className="uppercase tracking-wider text-muted">
+                  <span className="shrink-0 uppercase tracking-wider text-muted">
                     Capital:
                   </span>
                   <span className="text-parchment">
@@ -97,7 +97,7 @@ const CountryDetails = () => {
                 </p>
 
                 <p className="flex justify-between gap-4 border-b border-line/60 pb-2 font-mono text-xs sm:text-sm">
-                  <span className="uppercase tracking-wider text-muted">
+                  <span className="shrink-0 uppercase tracking-wider text-muted">
                     Top Level Domain:
                   </span>
                   <span className="text-parchment">
@@ -105,20 +105,20 @@ const CountryDetails = () => {
                   </span>
                 </p>
                 <p className="flex justify-between gap-4 border-b border-line/60 pb-2 font-mono text-xs sm:text-sm">
-                  <span className="uppercase tracking-wider text-muted">
+                  <span className="shrink-0 uppercase tracking-wider text-muted">
                     Currencies:
                   </span>
-                  <span className="text-right text-parchment">
+                  <span className="min-w-0 text-right text-parchment break-words">
                     {country.currencies?.length
                       ? country.currencies.map((cur) => cur.name).join(", ")
                       : "N/A"}
                   </span>
                 </p>
                 <p className="flex justify-between gap-4 font-mono text-xs sm:text-sm">
-                  <span className="uppercase tracking-wider text-muted">
+                  <span className="shrink-0 uppercase tracking-wider text-muted">
                     Languages:
                   </span>
-                  <span className="text-right text-parchment">
+                  <span className="min-w-0 text-right text-parchment break-words">
                     {country.languages?.length
                       ? country.languages.map((lang) => lang.name).join(", ")
                       : "N/A"}
