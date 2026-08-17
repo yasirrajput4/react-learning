@@ -38,16 +38,6 @@ Check out the live application hosted on Vercel:
    - How to break a page into small, focused components (`CountryCard`, `SearchFilter`, `Loader`, `Headers`, `Footers`) that each take props and render one piece of UI.
    - How to keep a single component (`CountryCard`) reusable across a dynamic list rendered with `.map()`.
 
-6. **Responsive UI with Tailwind CSS**:
-   - How to design a full app UI using only Tailwind utility classes instead of hand-written CSS files.
-   - How to build a mobile-first responsive layout with breakpoint prefixes (`sm:`, `md:`, `lg:`) for grids, flex layouts, and typography.
-   - How to build a responsive hamburger menu that toggles a mobile nav drawer with local component state (`useState`).
-   - How to define a custom design system (colors, fonts) using Tailwind's `@theme` tokens instead of inline styles.
-
-7. **Environment Variables & API Keys**:
-   - How to keep a secret API key out of source code using a `.env` file and `import.meta.env` in Vite.
-   - Why API keys should never be hardcoded or committed, and how to rotate one if it's accidentally exposed.
-
 ---
 
 ## Features
