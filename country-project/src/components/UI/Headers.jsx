@@ -13,14 +13,16 @@ const Headers = () => {
   const [show, setShow] = useState(false);
 
   const handleButtonToggle = () => {
-    return setShow(!show);
+    setShow((prev) => !prev);
   };
+
+  const closeMenu = () => setShow(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-brass/20 bg-ink/80 backdrop-blur-xl transition-all duration-300">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
-          <div className="Logo">
+          <div>
             <NavLink to="/" className="group inline-block">
               <h1 className="font-display text-2xl italic tracking-wider transition-transform duration-300 group-hover:scale-105 sm:text-3xl">
                 World
@@ -34,26 +36,38 @@ const Headers = () => {
           <nav
             className={`${
               show ? "flex" : "hidden"
-            } absolute inset-x-0 top-full flex-col border-b border-brass/20 bg-ink/95 px-6 py-5 shadow-2xl backdrop-blur-2xl md:static md:flex md:flex-row md:border-0 md:bg-transparent md:p-0 md:shadow-none`}
+            } absolute inset-x-0 top-full max-h-[calc(100vh-5rem)] flex-col overflow-y-auto border-b border-brass/20 bg-ink/95 px-6 py-5 shadow-2xl backdrop-blur-2xl md:static md:flex md:max-h-none md:flex-row md:overflow-visible md:border-0 md:bg-transparent md:p-0 md:shadow-none`}
           >
             <ul className="flex flex-col gap-2 md:flex-row md:items-center md:gap-8">
               <li>
-                <NavLink to="/" className={navLinkClass}>
+                <NavLink to="/" className={navLinkClass} onClick={closeMenu}>
                   Home
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/about" className={navLinkClass}>
+                <NavLink
+                  to="/about"
+                  className={navLinkClass}
+                  onClick={closeMenu}
+                >
                   About
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/country" className={navLinkClass}>
+                <NavLink
+                  to="/country"
+                  className={navLinkClass}
+                  onClick={closeMenu}
+                >
                   Country
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/contact" className={navLinkClass}>
+                <NavLink
+                  to="/contact"
+                  className={navLinkClass}
+                  onClick={closeMenu}
+                >
                   Contact
                 </NavLink>
               </li>
@@ -64,7 +78,8 @@ const Headers = () => {
             <button
               onClick={handleButtonToggle}
               aria-label="Toggle menu"
-              className="group flex items-center justify-center rounded-xl border border-brass/30 bg-surface/60 p-2.5 text-2xl text-parchment transition-all duration-300 hover:border-brass hover:bg-surface hover:text-brass active:scale-95"
+              aria-expanded={show}
+              className="group flex h-11 w-11 items-center justify-center rounded-xl border border-brass/30 bg-surface/60 text-2xl text-parchment transition-all duration-300 hover:border-brass hover:bg-surface hover:text-brass active:scale-95"
             >
               <GiHamburgerMenu className="transition-transform duration-300 group-hover:rotate-6" />
             </button>
