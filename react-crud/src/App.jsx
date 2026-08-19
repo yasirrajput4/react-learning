@@ -1,7 +1,11 @@
-import React from "react";
+import Posts from "./components/Posts";
 
-function App() {
-  return <div>App</div>;
-}
+const App = () => {
+  return (
+    <section className="main-section">
+      <Posts />
+    </section>
+  );
+};
 
 export default App;
