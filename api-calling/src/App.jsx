@@ -4,20 +4,20 @@ const App = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const fetchProducts = async () => {
+    try {
+      const res = await fetch(
+        "https://api.freeapi.app/api/v1/public/randomproducts",
+      );
+      const data = await res.json();
+      setProducts(data?.data?.data || []);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const res = await fetch(
-          "https://api.freeapi.app/api/v1/public/randomproducts",
-        );
-        const data = await res.json();
-        setProducts(data?.data?.data || []);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
     fetchProducts();
   }, []);
 
