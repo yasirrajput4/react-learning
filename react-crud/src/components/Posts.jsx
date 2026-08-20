@@ -4,16 +4,16 @@ import { deletePost, getPosts } from "../api/postApi.js";
 function Posts() {
   const [data, setData] = useState([]);
 
-  async function getData() {
-    try {
-      const res = await getPosts();
-
-      setData(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  }
   useEffect(() => {
+    async function getData() {
+      try {
+        const res = await getPosts();
+
+        setData(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
     getData();
   }, []);
 
