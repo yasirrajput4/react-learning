@@ -9,8 +9,9 @@ function Todos() {
       const rawTodos = localStorage.getItem(todosKey);
       if (!rawTodos) return [];
       const parsed = JSON.parse(rawTodos);
-      return Array.isArray(parsed) ? parsed : [];
-    } catch (e) {
+      return parsed;
+    } catch (error) {
+      console.log(error);
       return [];
     }
   });
@@ -69,7 +70,7 @@ function Todos() {
         </form>
 
         <ul className="flex flex-col gap-2 max-h-60 overflow-y-auto pr-1">
-          {!Array.isArray(todosList) || todosList.length === 0 ? (
+          {todosList.length === 0 ? (
             <li className="text-center py-6 text-slate-500 text-sm border border-dashed border-slate-700/60 rounded-xl">
               No tasks added yet!
             </li>
