@@ -155,7 +155,7 @@ function App() {
               className="w-full cursor-pointer"
               style={{ accentColor: "#22E3A5" }}
               onChange={(e) => {
-                setLength(e.target.value);
+                setLength(Number(e.target.value));
               }}
             />
           </div>
