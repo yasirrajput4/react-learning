@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { deletePost, getPosts } from "../api/postApi.js";
+import Form from "./Form.jsx";
 
 function Posts() {
   const [data, setData] = useState([]);
@@ -34,25 +35,30 @@ function Posts() {
   };
 
   return (
-    <section className="section-post">
-      <ol>
-        {data.map((curElem) => {
-          const { id, body, title } = curElem;
-          return (
-            <li key={id}>
-              <p>Title: {title}</p>
-              <p>Body: {body}</p>
-              <button
-                className="btn-delete"
-                onClick={() => handleDeletePost(id)}
-              >
-                Delete
-              </button>
-            </li>
-          );
-        })}
-      </ol>
-    </section>
+    <>
+      <section className="section-form">
+        <Form data={data} setData={setData} />
+      </section>
+      <section className="section-post">
+        <ol>
+          {data.map((curElem) => {
+            const { id, body, title } = curElem;
+            return (
+              <li key={id}>
+                <p>Title: {title}</p>
+                <p>Body: {body}</p>
+                <button
+                  className="btn-delete"
+                  onClick={() => handleDeletePost(id)}
+                >
+                  Delete
+                </button>
+              </li>
+            );
+          })}
+        </ol>
+      </section>
+    </>
   );
 }
 

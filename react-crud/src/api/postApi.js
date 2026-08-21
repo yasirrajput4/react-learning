@@ -13,3 +13,8 @@ export function getPosts() {
 export function deletePost(id) {
   return api.delete(`/posts/${id}`);
 }
+
+// POST Method
+export function postData(post) {
+  return api.post("/posts", post);
+}
