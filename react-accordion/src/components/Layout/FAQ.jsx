@@ -1,22 +1,16 @@
-import { useState } from "react";
-
-const FAQ = ({ curData }) => {
-  
+const FAQ = ({ curData, isActive, onToggle }) => {
   const { question, answer } = curData;
-  const [activeId, setActiveId] = useState(false);
 
-  function hanldeButton() {
-    setActiveId(!activeId);
-  }
   return (
     <li>
       <div className=" accordion-grid  ">
         <p className="accordion-question">{question}</p>
-        <button onClick={hanldeButton}>{activeId ? "Close" : "Show"}</button>
+        <button onClick={onToggle} className={isActive ? "active-btn" : ""}>
+          {isActive ? "close" : "show"}{" "}
+        </button>
       </div>
-      <p> {activeId && answer} </p>
+      {isActive && <p> {answer} </p>}
     </li>
   );
 };
-
 export default FAQ;
