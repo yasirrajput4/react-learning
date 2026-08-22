@@ -1,4 +1,10 @@
+import Accordion from "./components/UI/Accordion";
+
 const App = () => {
-  return <h1>Hello</h1>;
+  return (
+    <>
+      <Accordion />
+    </>
+  );
 };
 export default App;
