@@ -1,5 +1,6 @@
 import axios from "axios";
 
+// Axios Instance
 const api = axios.create({
   baseURL: "https://jsonplaceholder.typicode.com",
 });
@@ -18,3 +19,8 @@ export function deletePost(id) {
 export function postData(post) {
   return api.post("/posts", post);
 }
+
+// PUT Method
+export const updateData = (id, post) => {
+  return api.put(`/posts/${id}`, post);
+};

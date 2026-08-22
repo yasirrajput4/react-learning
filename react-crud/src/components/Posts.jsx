@@ -1,21 +1,20 @@
 import { useEffect, useState } from "react";
-import { deletePost, getPosts } from "../api/postApi.js";
-import Form from "./Form.jsx";
+import { deletePost, getPosts } from "../api/postApi";
+import "../index.css";
+import Form from "./Form";
 
-function Posts() {
+const Posts = () => {
   const [data, setData] = useState([]);
+  const [updateDataApi, setUpdateDataApi] = useState({});
+
+  const getPostData = async () => {
+    const res = await getPosts();
+    console.log(res.data);
+    setData(res.data);
+  };
 
   useEffect(() => {
-    async function getData() {
-      try {
-        const res = await getPosts();
-
-        setData(res.data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    getData();
+    getPostData();
   }, []);
 
   const handleDeletePost = async (id) => {
@@ -34,10 +33,17 @@ function Posts() {
     }
   };
 
+  const handleUpdatePost = (curElem) => setUpdateDataApi(curElem);
+
   return (
     <>
       <section className="section-form">
-        <Form data={data} setData={setData} />
+        <Form
+          data={data}
+          setData={setData}
+          updateDataApi={updateDataApi}
+          setUpdateDataApi={setUpdateDataApi}
+        />
       </section>
       <section className="section-post">
         <ol>
@@ -47,6 +53,7 @@ function Posts() {
               <li key={id}>
                 <p>Title: {title}</p>
                 <p>Body: {body}</p>
+                <button onClick={() => handleUpdatePost(curElem)}>Edit</button>
                 <button
                   className="btn-delete"
                   onClick={() => handleDeletePost(id)}
@@ -60,6 +67,6 @@ function Posts() {
       </section>
     </>
   );
-}
+};
 
 export default Posts;
