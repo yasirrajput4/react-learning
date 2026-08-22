@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 const FAQ = ({ curData }) => {
+  
   const { question, answer } = curData;
   const [activeId, setActiveId] = useState(false);
 
