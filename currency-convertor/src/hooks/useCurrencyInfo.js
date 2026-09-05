@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 function useCurrencyInfo(currency) {
   const [data, setData] = useState({});
@@ -6,15 +7,11 @@ function useCurrencyInfo(currency) {
   useEffect(() => {
     const fetchCurrencyInfo = async () => {
       try {
-        const res = await fetch(
-          `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${currency}.json`,
-        );
+        const url = `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${currency}.json`;
 
-        if (!res.ok) {
-          throw new Error(`Failed to fetch currency data: ${res.status}`);
-        }
+        const res = await axios.get(url);
 
-        const result = await res.json();
+        const result = res.data;
         setData(result[currency]);
       } catch (error) {
         console.error("Error fetching currency info:", error);
