@@ -1,34 +1,33 @@
-import { useEffect, useState } from "react";
+import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
 
 const App = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { isPending, error, data } = useQuery({
+    queryKey: ["products"],
+    queryFn: async () => {
+      const URL = "https://api.freeapi.app/api/v1/public/randomproducts";
+      const res = await axios.get(URL);
+      const data = res.data;
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const res = await fetch(
-          "https://api.freeapi.app/api/v1/public/randomproducts",
-        );
-        const data = await res.json();
+      return data.data.data;
+    },
+  });
 
-        setProducts(data.data.data);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchProducts();
-  }, []);
-
-  if (loading) {
+  if (isPending) {
     return (
       <div className="min-h-screen bg-zinc-950 text-zinc-400 flex items-center justify-center">
         <div className="flex items-center gap-3 bg-zinc-900 border border-zinc-800 px-5 py-3 rounded-xl shadow-lg">
           <div className="w-5 h-5 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin"></div>
           <span className="text-sm font-medium">Loading products...</span>
         </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex flex-col items-center gap-2 m-4 bg-red-600 text-white p-6 text-xl rounded-lg text-center">
+        <p>Unable to load products right now. Please try again later.</p>
       </div>
     );
   }
@@ -46,12 +45,12 @@ const App = () => {
             </p>
           </div>
           <span className="bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs px-3 py-1.5 rounded-full font-medium">
-            {products.length} Items
+            {data.length} Items
           </span>
         </header>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {products.map((product) => {
+          {data.map((product) => {
             const { id, brand, rating, title, description, price } = product;
             return (
               <div
