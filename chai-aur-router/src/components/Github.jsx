@@ -1,32 +1,17 @@
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 function Github() {
-  const [data, setData] = useState({});
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { isPending, error, data } = useQuery({
+    queryKey: ["githubUser"],
+    queryFn: async () => {
+      const URL = "https://api.github.com/users/hiteshchoudhary";
+      const res = await axios.get(URL);
+      return res.data;
+    },
+  });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch("https://api.github.com/users/hiteshchoudhary");
-        if (!res.ok) {
-          throw new Error(`Request failed with status ${res.status}`);
-        }
-        const result = await res.json();
-        setData(result);
-      } catch (err) {
-        console.error("Error fetching github user:", err);
-        setError(
-          "Unable to load GitHub profile right now. Please try again later.",
-        );
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, []);
-
-  if (loading) {
+  if (isPending) {
     return (
       <div className="text-center m-4 bg-gray-600 text-white p-4 text-3xl">
         Loading...
@@ -37,7 +22,7 @@ function Github() {
   if (error) {
     return (
       <div className="flex flex-col items-center gap-2 m-4 bg-red-600 text-white p-6 text-xl rounded-lg text-center">
-        <p>{error}</p>
+        <p>Unable to load GitHub profile right now. Please try again later.</p>
       </div>
     );
   }
