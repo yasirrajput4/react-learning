@@ -95,6 +95,7 @@ function Contact() {
                   name="name"
                   id="name"
                   placeholder="Full Name"
+                  autoComplete="name"
                   className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none transition-colors duration-200"
                 />
               </div>
@@ -108,6 +109,7 @@ function Contact() {
                   name="email"
                   id="email"
                   placeholder="Email"
+                  autoComplete="email"
                   className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none transition-colors duration-200"
                 />
               </div>
@@ -121,6 +123,7 @@ function Contact() {
                   name="tel"
                   id="tel"
                   placeholder="Telephone Number"
+                  autoComplete="tel"
                   className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none transition-colors duration-200"
                 />
               </div>

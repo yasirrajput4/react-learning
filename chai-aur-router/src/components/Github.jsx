@@ -5,8 +5,8 @@ function Github() {
   const { isPending, error, data } = useQuery({
     queryKey: ["githubUser"],
     queryFn: async () => {
-      const URL = "https://api.github.com/users/hiteshchoudhary";
-      const res = await axios.get(URL);
+      const url = "https://api.github.com/users/hiteshchoudhary";
+      const res = await axios.get(url);
       return res.data;
     },
   });
