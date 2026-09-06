@@ -5,8 +5,8 @@ const App = () => {
   const { isPending, error, data } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
-      const URL = "https://api.freeapi.app/api/v1/public/randomproducts";
-      const res = await axios.get(URL);
+      const url = "https://api.freeapi.app/api/v1/public/randomproducts";
+      const res = await axios.get(url);
       const data = res.data;
 
       return data.data.data;
