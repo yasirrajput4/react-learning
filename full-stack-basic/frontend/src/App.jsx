@@ -5,7 +5,7 @@ function App() {
 
   useEffect(() => {
     try {
-      fetch("http://localhost:3000/students")
+      fetch("http://localhost:5000/students")
         .then((res) => res.json())
         .then((data) => setStudents(data));
     } catch (error) {
