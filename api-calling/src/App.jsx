@@ -5,7 +5,9 @@ const App = () => {
   const { isPending, error, data } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
-      const url = "https://api.freeapi.app/api/v1/public/randomproducts";
+      const url =
+        "https://prod-main-api-704464-00tre1p1erm.compute.instacloud-edge.com/api/v1/public/randomproducts";
+
       const res = await axios.get(url);
       const data = res.data;
 
