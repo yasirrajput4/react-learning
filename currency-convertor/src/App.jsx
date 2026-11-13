@@ -29,7 +29,7 @@ const App = () => {
         {/* Left side - photo */}
         <div className="hidden md:block md:w-1/2">
           <img
-            src="https://picsum.photos/seed/currency-exchange/900/700"
+            src="https://images.indianexpress.com/2022/10/Kohli-30.jpg"
             alt="Currency exchange"
             className="w-full h-105 object-cover rounded-2xl shadow-2xl border border-white/40"
           />
